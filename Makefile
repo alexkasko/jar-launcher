@@ -1,7 +1,7 @@
 
-JL_PLATFORM = linux
+JL_PLATFORM = macosx
 JL_JAVA_RELATIVE_PATH = jre/bin/java
-JL_JAR_RELATIVE_PATH = install.jar
+JL_JAR_RELATIVE_PATH = delta-diff.jar
 
 all: compile vg
 
@@ -24,3 +24,6 @@ vg:
 		--leak-check=full \
 		--show-reachable=yes \
 		build/install
+
+run:
+	build/install
