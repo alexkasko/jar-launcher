@@ -1,4 +1,5 @@
 
+JL_PLATFORM = linux
 JL_JAVA_RELATIVE_PATH = jre/bin/java
 JL_JAR_RELATIVE_PATH = install.jar
 
@@ -10,7 +11,7 @@ compile:
 		-DJL_JAR_RELATIVE_PATH=\"$(JL_JAR_RELATIVE_PATH)\" \
 		jl_common.c \
 		jl_heap.c \
-		jl_platform_linux.c \
+		jl_platform_$(JL_PLATFORM).c \
 		install.c
 
 clean:
