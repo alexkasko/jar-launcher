@@ -1,13 +1,27 @@
 #pragma once
-#include <stdbool.h> 
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+#include "jl_common.h"
 
 typedef struct {                                                                                                       
-    char* path;                                                                                                        
-    bool path_allocated;                                                                                               
-    char* (*path_alloc)(size_t size);                                                                                  
-    void (*path_free)();                                                                                               
+    // parent absolute path
+    char* parent_path;
+    bool parent_path_allocated;
+    char* (*parent_path_alloc)(size_t size);
+    void (*parent_path_free)();
+    // java executable relative path
+    char* java_path;
+    bool java_path_allocated;
+    char* (*java_path_alloc)(size_t size);
+    void (*java_path_free)();
+    // jar file relative path
+    char* jar_path;
+    bool jar_path_allocated;
+    char* (*jar_path_alloc)(size_t size);
+    void (*jar_path_free)();
     
-    void (*free)();                                                                                                    
+    void (*free)();
 } jl_Heap;  
 
 extern void jl_heap_init();
