@@ -53,7 +53,7 @@ static void heap_free() {
     free(jl_heap);
 }
 
-extern void jl_heap_init() {
+void jl_heap_init() {
     jl_heap = malloc(sizeof(jl_Heap));
     jl_heap->parent_path_alloc = parent_path_alloc;
     jl_heap->parent_path_free = parent_path_free;

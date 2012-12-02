@@ -10,6 +10,7 @@ compile:
 		-DJL_JAR_RELATIVE_PATH=\"$(JL_JAR_RELATIVE_PATH)\" \
 		jl_common.c \
 		jl_heap.c \
+		jl_platform_linux.c \
 		install.c
 
 clean:
