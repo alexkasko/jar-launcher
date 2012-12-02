@@ -1,5 +1,4 @@
-
-#include "jl_platform.h"
+#include "jl_platform_linux.h"
 
 // http://stackoverflow.com/questions/1023306/finding-current-executables-path-without-proc-self-exe
 // http://stackoverflow.com/q/9385386/314015
