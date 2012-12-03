@@ -20,6 +20,11 @@ typedef struct {
     bool jar_path_allocated;
     char* (*jar_path_alloc)(size_t size);
     void (*jar_path_free)();
+    // full command line string
+    char* cmd_string;
+    bool cmd_string_allocated;
+    char* (*cmd_string_alloc)(size_t size);
+    void (*cmd_string_free)();
     
     void (*free)();
 } jl_Heap;  

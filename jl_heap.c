@@ -43,6 +43,19 @@ static void jar_path_free() {
     free(jl_heap->jar_path);
     jl_heap->jar_path_allocated = false;
 }
+// cmd_string functions
+static char* cmd_string_alloc(const size_t size) {
+    if(jl_heap->cmd_string_allocated) jl_error("cmd_string_alloc: already allocated");
+    jl_heap->cmd_string = malloc(size);
+    jl_heap->cmd_string_allocated = true;
+    memset(jl_heap->cmd_string, 0, size);
+    return jl_heap->cmd_string;
+}
+static void cmd_string_free() {
+    if(!jl_heap->cmd_string_allocated) return;
+    free(jl_heap->cmd_string);
+    jl_heap->cmd_string_allocated = false;
+}
 
 // main heap functions
 
@@ -50,6 +63,7 @@ static void heap_free() {
     jl_heap->parent_path_free();
     jl_heap->java_path_free();
     jl_heap->jar_path_free();
+    jl_heap->cmd_string_free();
     free(jl_heap);
 }
 
@@ -64,5 +78,8 @@ void jl_heap_init() {
     jl_heap->jar_path_alloc = jar_path_alloc;
     jl_heap->jar_path_free = jar_path_free;
     jl_heap->jar_path_allocated = false;
+    jl_heap->cmd_string_alloc = cmd_string_alloc;
+    jl_heap->cmd_string_free = cmd_string_free;
+    jl_heap->cmd_string_allocated = false;
     jl_heap->free = heap_free;
 }

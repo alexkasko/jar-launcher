@@ -1,12 +1,12 @@
 
-JL_PLATFORM = macosx
+JL_PLATFORM = windows
 JL_JAVA_RELATIVE_PATH = jre/bin/java
-JL_JAR_RELATIVE_PATH = delta-diff.jar
+JL_JAR_RELATIVE_PATH = install.jar
 
-all: compile vg
+all: compile run
 
 compile:
-	gcc -g -O0 -Wall -std=gnu99 -o build/install \
+	gcc -g -O0 -Wall -std=gnu99 -o build/install.exe \
 		-DJL_JAVA_RELATIVE_PATH=\"$(JL_JAVA_RELATIVE_PATH)\" \
 		-DJL_JAR_RELATIVE_PATH=\"$(JL_JAR_RELATIVE_PATH)\" \
 		jl_common.c \
@@ -26,4 +26,4 @@ vg:
 		build/install
 
 run:
-	build/install
+	build/install.exe
