@@ -36,9 +36,6 @@ compile:
 
 clean:
 	rm $(JL_EXECUTABLE_NAME)
-	ifeq ($(JL_PLATFORM),windows)
-		rm $(JL_ICON_RES_FILE)
-	endif
 
 vg: 
 	valgrind --track-origins=yes \
