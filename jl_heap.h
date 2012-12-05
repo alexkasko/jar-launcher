@@ -3,6 +3,16 @@
 #include <stdlib.h>
 #include "jl_common.h"
 
+/**
+ * This struct controls all heap memory allocation
+ * There are 4 elements for each heap variable:
+ *  - pointer to allocated memory
+ *  - flag whether the memory was allocated
+ *  - function to allocate memory, 'throws' error on repeated calls
+ *  - function to free memory, ignores repeated calls
+ *
+ * 'st->free()' function frees all allocaed memory
+ */
 typedef struct {                                                                                                       
     // parent absolute path
     char* parent_path;
@@ -28,6 +38,12 @@ typedef struct {
     void (*free)();
 } jl_Heap;  
 
+/**
+ * Heap struct initializer, must be called from main on start
+ */
 extern void jl_heap_init();
 
+/**
+ * Pointer to global heap structure, all allocations must be done through it
+ */
 extern jl_Heap* jl_heap;

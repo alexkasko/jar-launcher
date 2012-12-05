@@ -1,5 +1,5 @@
 # all variables may be set from environmment, use:
-# . env_windows.sh
+# . myapp.env
 # make -e icon # windows only step
 # make -e
 
