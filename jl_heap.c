@@ -1,3 +1,7 @@
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+#include "jl_common.h"
 #include "jl_heap.h"
 
 jl_Heap* jl_heap;

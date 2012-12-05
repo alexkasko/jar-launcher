@@ -1,11 +1,14 @@
-#include "jl_platform_linux.h"
+#include <unistd.h>
+#include <math.h>
+#include "jl_common.h"
+#include "jl_heap.h"
+#include "jl_platform.h"
 
 // http://stackoverflow.com/questions/1023306/finding-current-executables-path-without-proc-self-exe
 // http://stackoverflow.com/q/9385386/314015
 static char* jl_readlink(const char * path, char* (*allocfun)(const size_t size), void (*freefun)(), const int init_size) {
     long size = init_size;
     for(;;) {
-        //char* link = jl_heap->parent_path_alloc(size);
         char* link = allocfun(size);
         ssize_t res_size = readlink(path, link, size);
         if(res_size < 0) jl_error("jl_readlink: readlink error");

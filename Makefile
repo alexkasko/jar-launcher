@@ -8,7 +8,7 @@ CC = gcc
 JL_COMPILER_OPTIONS = -g -Wall -std=gnu99
 
 # result executable name
-JL_EXECUTABLE_NAME = launcher.exe
+JL_EXECUTABLE_NAME = launcher
 
 # paths are relative to executable file
 JL_JAVA_RELATIVE_PATH = jre/bin/java
@@ -16,8 +16,8 @@ JL_JAR_RELATIVE_PATH = launcher.jar
 
 # platform settings
 # allowed values are: 'linux', 'macosx' and 'windows'
-JL_PLATFORM = windows
-JL_PLATFORM_COMPILER_OPTIONS= -mwindows $(JL_ICON_RES_FILE)
+JL_PLATFORM = linux
+JL_PLATFORM_COMPILER_OPTIONS=
 
 # icon on windows
 JL_ICON_RC_FILE = icon.rc

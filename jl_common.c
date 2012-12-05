@@ -1,3 +1,7 @@
+#include <errno.h>
+#include <stdio.h>
+#include <string.h>
+#include "jl_heap.h"
 #include "jl_common.h"
 
 void jl_error(const char* message) {

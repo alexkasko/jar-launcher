@@ -1,3 +1,5 @@
+#include <string.h>
+#include <stdio.h>
 #include "jl_common.h"
 #include "jl_heap.h"
 #include "jl_platform.h"
