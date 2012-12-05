@@ -3,6 +3,10 @@
 # make -e icon # windows only step
 # make -e
 
+# platform name
+# allowed values are: 'linux', 'macosx' and 'windows'
+JL_PLATFORM = linux
+
 # compile settings
 CC = gcc
 JL_COMPILER_OPTIONS = -g -O0 -Wall -std=gnu99
@@ -13,10 +17,6 @@ JL_EXECUTABLE_NAME = launcher
 # paths are relative to executable file
 JL_JAVA_RELATIVE_PATH = jre/bin/java
 JL_JAR_RELATIVE_PATH = launcher.jar
-
-# platform settings
-# allowed values are: 'linux', 'macosx' and 'windows'
-JL_PLATFORM = linux
 
 # icon on windows
 JL_ICON_RC_FILE = icon.rc

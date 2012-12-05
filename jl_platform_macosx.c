@@ -1,4 +1,9 @@
-#include "jl_platform_macosx.h"
+#include <unistd.h>
+#include <math.h>
+#include <mach-o/dyld.h>
+#include "jl_common.h"
+#include "jl_heap.h"
+#include "jl_platform.h"
 
 
 // http://stackoverflow.com/questions/1023306/finding-current-executables-path-without-proc-self-exe
@@ -20,7 +25,6 @@ char* jl_get_dir_path() {
     char* path = jl_get_exec_path(jl_heap->parent_path_alloc, jl_heap->parent_path_free, pow(2, 5));
     jl_strip_filename(path, '/');
     return path;
-    //return "/Users/alex/projects/jar-launcher/build/";
 }
 
 void jl_exec_java(const char* javapath, const char* jarpath) {
