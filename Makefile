@@ -22,7 +22,7 @@ JL_JAR_RELATIVE_PATH ?= launcher.jar
 JL_ICON_RC_FILE ?= icon.rc
 JL_ICON_RES_FILE ?= icon.res
 
-default: compile
+all: compile
 
 compile:
 	$(JL_CC) $(JL_COMPILER_OPTIONS) \
@@ -45,7 +45,7 @@ vg:
 		$(JL_EXECUTABLE_NAME)
 
 run:
-	$(JL_EXECUTABLE_NAME)
+	./$(JL_EXECUTABLE_NAME)
 
 # windows only
 icon:	

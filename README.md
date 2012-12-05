@@ -16,7 +16,9 @@ To compile launcher you will need:
  - C99 compiler
 
 On windows you may use [msysGit bash](http://code.google.com/p/msysgit/) as shell and
-[mingw-w64](http://mingw-w64.sourceforge.net/) compiler.
+[mingw-w64](http://mingw-w64.sourceforge.net/) compiler with 
+[patched version of make](http://sourceforge.net/projects/mingw-w64/files/External%20binary%20packages%20%28Win64%20hosted%29/make/)
+([description](http://sourceforge.net/apps/trac/mingw-w64/wiki/Make)).
 
 To build launcher with paths, specific for your application, you must prepare environment file, example:
 
