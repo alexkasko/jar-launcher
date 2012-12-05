@@ -28,7 +28,7 @@ To build launcher with paths, specific for your application, you must prepare en
 Then set this variables into environment and run:
 
     . myapp.env
-    make -e
+    make
 
 Build on windows using custom icon
 ----------------------------------
@@ -41,8 +41,8 @@ where `myapp.rc` is a resource file, see example [here](http://stackoverflow.com
 Then run (from msysGit bash):
 
     . my_windows.env
-    make -e icon
-    make -e
+    make icon
+    make
 
 License information
 -------------------
