@@ -1,3 +1,4 @@
 /build
-/*.c.swp
-/*.h.swp
+/*.swp
+/*.res
+/*.env
