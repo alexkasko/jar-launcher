@@ -5,7 +5,7 @@
 
 # compile settings
 CC = gcc
-JL_COMPILER_OPTIONS = -g -Wall -std=gnu99
+JL_COMPILER_OPTIONS = -g -O0 -Wall -std=gnu99
 
 # result executable name
 JL_EXECUTABLE_NAME = launcher
@@ -17,7 +17,6 @@ JL_JAR_RELATIVE_PATH = launcher.jar
 # platform settings
 # allowed values are: 'linux', 'macosx' and 'windows'
 JL_PLATFORM = linux
-JL_PLATFORM_COMPILER_OPTIONS=
 
 # icon on windows
 JL_ICON_RC_FILE = icon.rc
@@ -29,7 +28,6 @@ compile:
 	$(CC) $(JL_COMPILER_OPTIONS) \
 		-DJL_JAVA_RELATIVE_PATH=\"$(JL_JAVA_RELATIVE_PATH)\" \
 		-DJL_JAR_RELATIVE_PATH=\"$(JL_JAR_RELATIVE_PATH)\" \
-		$(JL_PLATFORM_COMPILER_OPTIONS) \
 		jl_common.c \
 		jl_heap.c \
 		jl_platform_$(JL_PLATFORM).c \
