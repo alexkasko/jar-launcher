@@ -36,7 +36,7 @@ Build on windows using custom icon and version info
 ---------------------------------------------------
 
 Icon file path, version information (author, company etc) and manifest file
-are specified in `resources/resources.rc` file. To use custom parameters copy
+are specified in `resources/resources.rc` file. To use custom parameters, copy
 `resources.rc` to `myapp.rc`, edit it approproately and set this variable in env file:
 
     export JL_RC_FILE=path/to/myapp.rc
@@ -49,9 +49,9 @@ Code is provided under the terms of [Apache License 2.0](http://www.apache.org/l
 Changelog
 ---------
 
-**2012-12-05**
+**2012-12-06**
 
- * fix "This program might not have installed correctly" message on windows7
+ * fix "This program might not have installed correctly" message on windows7, [issue1](https://github.com/alexkasko/jar-launcher/issues/1)
 
 **2012-12-05**
 
