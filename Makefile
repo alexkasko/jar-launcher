@@ -9,7 +9,7 @@ JL_PLATFORM ?= linux
 
 # compile settings
 JL_CC ?= gcc
-JL_COMPILER_OPTIONS ?= -g -O0 -Wall -std=gnu99
+JL_COMPILER_OPTIONS ?= -O0
 
 # result executable name
 JL_EXECUTABLE_NAME ?= launcher
@@ -18,14 +18,18 @@ JL_EXECUTABLE_NAME ?= launcher
 JL_JAVA_RELATIVE_PATH ?= jre/bin/java
 JL_JAR_RELATIVE_PATH ?= launcher.jar
 
-# icon on windows
-JL_ICON_RC_FILE ?= icon.rc
-JL_ICON_RES_FILE ?= icon.res
+# resources on windows
+JL_RC_FILE ?= resources/resources.rc
+JL_RES_FILE ?= resources.res
+# resources switch
+ifeq ($(JL_PLATFORM),windows)	
+	JL_RESOURCES_TARGET = resfile
+endif
 
 all: compile
 
-compile:
-	$(JL_CC) $(JL_COMPILER_OPTIONS) \
+compile: $(JL_RESOURCES_TARGET)
+	$(JL_CC) -g -Wall -std=gnu99 $(JL_COMPILER_OPTIONS) \
 		-DJL_JAVA_RELATIVE_PATH=\"$(JL_JAVA_RELATIVE_PATH)\" \
 		-DJL_JAR_RELATIVE_PATH=\"$(JL_JAR_RELATIVE_PATH)\" \
 		jl_common.c \
@@ -35,7 +39,10 @@ compile:
 		-o $(JL_EXECUTABLE_NAME)
 
 clean:
-	rm $(JL_EXECUTABLE_NAME)
+	rm $(JL_EXECUTABLE_NAME) 2>/dev/null || true
+ifeq ($(JL_PLATFORM),windows)	
+	rm $(JL_RES_FILE) 2>/dev/null || true
+endif
 
 vg: 
 	valgrind --track-origins=yes \
@@ -48,5 +55,5 @@ run:
 	./$(JL_EXECUTABLE_NAME)
 
 # windows only
-icon:	
-	windres $(JL_ICON_RC_FILE) -O coff -o $(JL_ICON_RES_FILE)
+resfile:	
+	windres $(JL_RC_FILE) --output-format coff --output $(JL_RES_FILE)

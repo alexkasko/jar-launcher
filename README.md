@@ -2,7 +2,7 @@ Cross-platform native Java launcher
 ===================================
 
 Native executable launcher, starts JAR applications using relative (to launcher executable) paths
-to JRE and JAR file. Paths are compiled into launcher. Works on Linux, Mac OSX and Windows.
+to JRE and JAR file. Paths are compiled into launcher. Works on Linux, Mac OS X and Windows.
 
 *Note: this is not an executable wrapper, for JAR wrapping you may use 
 [launch4j](http://launch4j.sourceforge.net/) (or others like it) instead*
@@ -27,24 +27,19 @@ To build launcher with paths, specific for your application, you must prepare en
     export JL_JAVA_RELATIVE_PATH=jre/bin/java
     export JL_JAR_RELATIVE_PATH=path/to/myapp.jar
 
-Then set this variables into environment and run:
+Then run:
 
     . myapp.env
     make
 
-Build on windows using custom icon
-----------------------------------
+Build on windows using custom icon and version info
+---------------------------------------------------
 
-To build executable with custom icon use these environment options:
+Icon file path, version information (author, company etc) and manifest file
+are specified in `resources/resources.rc` file. To use custom parameters copy
+`resources.rc` to `myapp.rc`, edit it approproately and set this variable in env file:
 
-    export JL_ICON_RC_FILE=path/to/myapp.rc
-
-where `myapp.rc` is a resource file, see example [here](http://stackoverflow.com/a/708382/314015).
-Then run (from msysGit bash):
-
-    . my_windows.env
-    make icon
-    make
+    export JL_RC_FILE=path/to/myapp.rc
 
 License information
 -------------------
@@ -53,6 +48,10 @@ Code is provided under the terms of [Apache License 2.0](http://www.apache.org/l
 
 Changelog
 ---------
+
+**2012-12-05**
+
+ * fix "This program might not have installed correctly" message on windows7
 
 **2012-12-05**
 

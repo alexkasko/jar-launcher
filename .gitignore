@@ -1,5 +1,5 @@
 /build
-/*.swp
-/*.res
-/*.env
-/.DS_Store
+*.swp
+*.res
+*.env
+.DS_Store
