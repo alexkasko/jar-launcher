@@ -44,7 +44,7 @@ are specified in `resources/resources.rc` file. To use custom parameters, copy
 License information
 -------------------
 
-Code is provided under the terms of [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+This project is released under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 Changelog
 ---------
